@@ -36,7 +36,18 @@ local function ShowChat(chatFrame)
     end
 
     window:Show()
-    editBox:SetText(table.concat(lines, '\n'))
+
+    local copyable = {}
+
+    -- One line rejected by SetText would blank the whole history.
+    for _, text in ipairs(lines) do
+        editBox:SetText(text)
+        if text == '' or editBox:GetNumLetters() > 0 then
+            table.insert(copyable, text)
+        end
+    end
+
+    editBox:SetText(table.concat(copyable, '\n'))
     editBox:SetFocus()
     editBox:HighlightText()
     scroll:SetVerticalScroll(0)
