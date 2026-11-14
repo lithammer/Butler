@@ -104,39 +104,39 @@ end
 
 local function UpdateContainer(container)
     for _, button in container:EnumerateValidItems() do
-        if button.prButlerQuality then
-            button.prButlerQuality:Hide()
+        if button.ButlerQuality then
+            button.ButlerQuality:Hide()
         end
 
-        if button.prButlerUnusable then
-            button.prButlerUnusable:Hide()
-            button.prButlerArrow:Hide()
+        if button.ButlerUnusable then
+            button.ButlerUnusable:Hide()
+            button.ButlerArrow:Hide()
         end
 
         ---@type ContainerItemInfo?
         local info = C_Container.GetContainerItemInfo(button:GetBagID(), button:GetID())
         if info and info.quality and info.quality >= Enum.ItemQuality.Uncommon and info.quality <= Enum.ItemQuality.Epic
             and not button.IconQuestTexture:IsShown() then
-            if not button.prButlerQuality then
+            if not button.ButlerQuality then
                 local border = button:CreateTexture(nil, 'OVERLAY', nil, 1)
                 border:SetAllPoints(button.IconBorder)
                 border:SetTexture('Interface/Common/WhiteIconFrame')
                 border:SetBlendMode('ADD')
-                button.prButlerQuality = border
+                button.ButlerQuality = border
             end
 
             local r, g, b = C_Item.GetItemQualityColor(info.quality)
-            button.prButlerQuality:SetVertexColor(r, g, b)
-            button.prButlerQuality:Show()
+            button.ButlerQuality:SetVertexColor(r, g, b)
+            button.ButlerQuality:Show()
         end
 
         if info and C_Item.GetItemInfo(info.hyperlink) then
-            if not button.prButlerUnusable then
+            if not button.ButlerUnusable then
                 local overlay = button:CreateTexture(nil, 'OVERLAY')
                 overlay:SetAllPoints(button.icon)
                 overlay:SetColorTexture(1, 0, 0, 0.35)
                 overlay:Hide()
-                button.prButlerUnusable = overlay
+                button.ButlerUnusable = overlay
 
                 local arrow = button:CreateTexture(nil, 'OVERLAY', nil, 7)
                 arrow:SetSize(14, 14)
@@ -144,18 +144,18 @@ local function UpdateContainer(container)
                 arrow:SetAtlas('bags-greenarrow')
                 arrow:SetDesaturated(true)
                 arrow:Hide()
-                button.prButlerArrow = arrow
+                button.ButlerArrow = arrow
             end
 
             local usable = C_PlayerInfo.CanUseItem(info.itemID)
-            button.prButlerUnusable:SetShown(not usable)
+            button.ButlerUnusable:SetShown(not usable)
 
             if usable then
                 local equipLoc = select(9, C_Item.GetItemInfo(info.hyperlink))
                 local upgrade = CompareItem(info.hyperlink, equipLoc)
 
                 if upgrade ~= nil then
-                    local arrow = button.prButlerArrow
+                    local arrow = button.ButlerArrow
                     arrow:SetRotation(upgrade and 0 or math.pi)
                     arrow:SetVertexColor(upgrade and 0 or 1, upgrade and 1 or 0, 0)
                     arrow:Show()

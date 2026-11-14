@@ -1,5 +1,5 @@
 ## Interface: 16001
-## Title: |cff669933pr|rButler
+## Title: Butler
 ## Version: 2.00
 ## IconTexture: Interface\Icons\INV_Misc_PocketWatch_01
 ## Notes: Bag item hints, chat copying, vendor junk selling, and AFK whisper history for WoW Forever.

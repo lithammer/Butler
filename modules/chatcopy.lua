@@ -1,10 +1,10 @@
-local window = CreateFrame('Frame', 'prButlerChatCopy', UIParent, 'BasicFrameTemplateWithInset')
+local window = CreateFrame('Frame', 'ButlerChatCopy', UIParent, 'BasicFrameTemplateWithInset')
 window:SetSize(640, 420)
 window:SetPoint('CENTER')
 window:SetFrameStrata('DIALOG')
 window.TitleText:SetText('Copy chat')
 window:Hide()
-table.insert(UISpecialFrames, 'prButlerChatCopy')
+table.insert(UISpecialFrames, 'ButlerChatCopy')
 
 local help = window:CreateFontString(nil, 'OVERLAY', 'GameFontHighlightSmall')
 help:SetPoint('TOPLEFT', 16, -36)
@@ -56,7 +56,7 @@ end
 local function AddButtons()
     for _, name in ipairs(CHAT_FRAMES) do
         local chatFrame = _G[name]
-        if not chatFrame.prButlerCopy then
+        if not chatFrame.ButlerCopy then
             local button = CreateFrame('Button', nil, chatFrame, 'UIPanelSquareButton')
             button:SetSize(26, 26)
             button:SetPoint('BOTTOM', chatFrame.buttonFrame, 'BOTTOM', 0, 36)
@@ -83,7 +83,7 @@ local function AddButtons()
                 GameTooltip:Hide()
                 ShowChat(chatFrame)
             end)
-            chatFrame.prButlerCopy = button
+            chatFrame.ButlerCopy = button
         end
     end
 end

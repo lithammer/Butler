@@ -1,4 +1,4 @@
-# prButler
+# Butler
 
 Small conveniences for World of Warcraft Forever.
 

@@ -1,4 +1,4 @@
-# prButler
+# Butler
 
 This addon targets World of Warcraft Forever. Use the
 [Forever UI source](https://github.com/Gethe/wow-ui-source/tree/forever)
