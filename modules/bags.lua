@@ -112,6 +112,7 @@ local function UpdateContainer(container)
         ---@type ContainerItemInfo?
         local info = C_Container.GetContainerItemInfo(button:GetBagID(), button:GetID())
         addon.UpdateItemBorder(button, info and info.quality)
+        addon.UpdateDisenchant(button, info)
 
         if info and C_Item.GetItemInfo(info.hyperlink) then
             if not button.ButlerUnusable then

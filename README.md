@@ -9,6 +9,7 @@ Small conveniences for World of Warcraft Forever.
 - **Stat hints:** Shows gear upgrades and downgrades with a Warlock leveling
   profile and conservative stat comparisons for other gear and classes.
 - **Merchant:** Automatically sells junk and repairs items at vendors.
+- **Disenchant:** Alt-click an item in your bags to disenchant it.
 - **Copy chat:** Adds a button on the left of the chat window to copy chat history.
   Skips messages the game's text box rejects so they cannot blank the whole copy.
 - **Chat labels:** Uses `[G: Orgrimmar]` for General, `[LD: Orgrimmar]` for
@@ -20,6 +21,13 @@ Small conveniences for World of Warcraft Forever.
   it is shown or the UI reloads.
 
 ## Checks
+
+Install [StyLua](https://github.com/JohnnyMorganz/StyLua). Format Lua files with:
+
+```sh
+stylua .
+stylua --check .
+```
 
 Run [wowlua-ls](https://github.com/TradeSkillMaster/wowlua-ls) with the
 repo's Forever configuration:
@@ -33,6 +41,3 @@ Enable the pre-commit hook in each checkout:
 ```sh
 git config core.hooksPath .githooks
 ```
-
-The hook checks the working tree and blocks commits on diagnostics or a
-missing checker. UI and event behavior still need in-game checks.
