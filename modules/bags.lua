@@ -104,10 +104,6 @@ end
 
 local function UpdateContainer(container)
     for _, button in container:EnumerateValidItems() do
-        if button.ButlerQuality then
-            button.ButlerQuality:Hide()
-        end
-
         if button.ButlerUnusable then
             button.ButlerUnusable:Hide()
             button.ButlerArrow:Hide()
@@ -115,20 +111,7 @@ local function UpdateContainer(container)
 
         ---@type ContainerItemInfo?
         local info = C_Container.GetContainerItemInfo(button:GetBagID(), button:GetID())
-        if info and info.quality and info.quality >= Enum.ItemQuality.Uncommon and info.quality <= Enum.ItemQuality.Epic
-            and not button.IconQuestTexture:IsShown() then
-            if not button.ButlerQuality then
-                local border = button:CreateTexture(nil, 'OVERLAY', nil, 1)
-                border:SetAllPoints(button.IconBorder)
-                border:SetTexture('Interface/Common/WhiteIconFrame')
-                border:SetBlendMode('ADD')
-                button.ButlerQuality = border
-            end
-
-            local r, g, b = C_Item.GetItemQualityColor(info.quality)
-            button.ButlerQuality:SetVertexColor(r, g, b)
-            button.ButlerQuality:Show()
-        end
+        addon.UpdateItemBorder(button, info and info.quality)
 
         if info and C_Item.GetItemInfo(info.hyperlink) then
             if not button.ButlerUnusable then

@@ -9,4 +9,5 @@ modules\whisperhistory.lua
 modules\chatcopy.lua
 modules\chatformat.lua
 modules\itemcomparison.lua
+modules\itemborders.lua
 modules\bags.lua

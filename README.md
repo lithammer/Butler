@@ -4,7 +4,8 @@ Small conveniences for World of Warcraft Forever.
 
 - **Unusable items:** Tints items you cannot use with a transparent red overlay
   in Blizzard's bags.
-- **Item borders:** Brightens green, blue, and purple item borders in bags.
+- **Item borders:** Brightens green, blue, and purple item borders in bags and
+  on the character screen.
 - **Stat hints:** Shows gear upgrades and downgrades with a Warlock leveling
   profile and conservative stat comparisons for other gear and classes.
 - **Merchant:** Automatically sells junk and repairs items at vendors.
